@@ -1,27 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:tally_task/features/business/domain/entities/business_entity.dart';
-
+/// BusinessCard is a reusable and customizable widget.
+/// It can render any content via the [child] parameter and supports tap actions through [onTap].
+/// This design allows it to be used for different models (e.g., BusinessEntity, ServiceEntity),
+/// making it flexible, clean, and easy to maintain.
 class BusinessCard extends StatelessWidget {
-  final BusinessEntity business;
+  final Widget child;
   final VoidCallback? onTap;
 
-  const BusinessCard({super.key, required this.business, this.onTap});
+  const BusinessCard({super.key, required this.child, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: ListTile(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      margin: const EdgeInsets.symmetric(horizontal: 16),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
         onTap: onTap,
-        title: Text(
-          business.name,
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
-        subtitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [Text(business.location), Text(business.contact)],
-        ),
-        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+        child: Padding(padding: const EdgeInsets.all(16.0), child: child),
       ),
     );
   }
