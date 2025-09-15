@@ -46,31 +46,16 @@ class BusinessRepositoryImpl implements BusinessRepository {
   @override
   Future<FailureOr<BusinessEntity>> getBusinessDetail(String id) async {
     try {
-      if (await _networkInfo.isConnected) {
-        final models = await _remote.getBusinesses();
-        await _local.cacheBusinesses(models);
-        final business = models.firstWhere(
-          (m) =>
-              '${m.businessName.trim()}_${m.contact.replaceAll(' ', '')}'
-                  .hashCode
-                  .toString() ==
-              id,
-          orElse: () => throw ServerException(),
-        );
-        return Right(business.toEntity());
-      } else {
-        final cached = await _local.getCachedBusinesses();
-        final business = cached.firstWhere(
-          (m) =>
-              '${m.businessName.trim()}_${m.contact.replaceAll(' ', '')}'
-                  .hashCode
-                  .toString() ==
-              id,
-          orElse: () => throw CacheException(),
-        );
+      final cached = await _local.getCachedBusinesses();
+      final business = cached.firstWhere(
+        (m) =>
+            '${m.businessName.trim()}_${m.contact.replaceAll(' ', '')}'.hashCode
+                .toString() ==
+            id,
+        orElse: () => throw CacheException(),
+      );
 
-        return Right(business.toEntity());
-      }
+      return Right(business.toEntity());
     } on DioException catch (e) {
       return Left(mapExceptionToFailure(e));
     } on CacheException catch (e) {
