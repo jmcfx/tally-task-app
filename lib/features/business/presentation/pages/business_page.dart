@@ -31,6 +31,7 @@ class _BusinessPageState extends State<BusinessPage> {
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             // SEARCH BAR
             TextField(
@@ -44,7 +45,6 @@ class _BusinessPageState extends State<BusinessPage> {
               ),
             ),
             const SizedBox(height: 12),
-
             // MAIN CONTENT
             Expanded(
               child: switch (state.viewState) {
