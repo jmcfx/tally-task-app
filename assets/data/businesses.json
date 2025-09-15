@@ -13,5 +13,40 @@
     "biz_name": "Chef Ama Private Kitchen",
     "bss_location": "Accra",
     "contct_no": "+233 24 888 9999"
+  },
+  {
+    "biz_name": "Spark Fitness Studio",
+    "bss_location": "New York",
+    "contct_no": "+1 212 555 7890"
+  },
+  {
+    "biz_name": "Bloom Flower Shop",
+    "bss_location": "London",
+    "contct_no": "+44 20 7946 0998"
+  },
+  {
+    "biz_name": "Techie Electronics",
+    "bss_location": "Berlin",
+    "contct_no": "+49 30 12345678"
+  },
+  {
+    "biz_name": "Happy Paws Pet Care",
+    "bss_location": "Toronto",
+    "contct_no": "+1 416 555 1122"
+  },
+  {
+    "biz_name": "Sunset Cafe",
+    "bss_location": "Sydney",
+    "contct_no": "+61 2 9876 5432"
+  },
+  {
+    "biz_name": "Urban Art Studio",
+    "bss_location": "Paris",
+    "contct_no": "+33 1 2345 6789"
+  },
+  {
+    "biz_name": "Green Thumb Nursery",
+    "bss_location": "Amsterdam",
+    "contct_no": "+31 20 555 3344"
   }
 ]
