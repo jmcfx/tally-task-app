@@ -9,7 +9,7 @@ part 'business_model.g.dart';
 @freezed
 sealed class BusinessModel with _$BusinessModel {
   const factory BusinessModel({
-    @JsonKey(name: 'biz_name') required String name,
+    @JsonKey(name: 'biz_name') required String businessName,
     @JsonKey(name: 'bss_location') required String location,
     @JsonKey(name: 'contct_no') required String contact,
   }) = _BusinessModel;
@@ -20,7 +20,7 @@ sealed class BusinessModel with _$BusinessModel {
 
 extension BusinessModelX on BusinessModel {
   BusinessEntity toEntity() {
-    final cleanName = name.trim();
+    final cleanName = businessName.trim();
     final cleanLocation = location.trim();
     final cleanContact = contact.replaceAll(' ', '');
     return (
