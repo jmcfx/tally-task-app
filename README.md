@@ -1,5 +1,9 @@
 # Tally App ( Geny Interview Task App )
-A Flutter mini-app showcasing a list of businesses with search and detail screens. Built with Provider state management, Dio networking, and a reusable, composable BusinessCard widget. Designed to be flexible, testable, and offline-capable.
+A Flutter mini-app that showcases a list of businesses with search and detail screens.  
+Built using **Clean Architecture**, **Provider** for state management, **Dio** for networking, and **Freezed** for immutable models and union states.  
+Includes a reusable, composable `BusinessCard` widget, designed for flexibility and adaptability across different models.  
+The app is fully offline-capable, testable, and structured with maintainability in mind.
+
 
 Business Page
 
