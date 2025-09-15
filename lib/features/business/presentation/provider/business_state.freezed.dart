@@ -14,11 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$BusinessState {
 
- ViewState get viewState;/// For list screen
- List<BusinessEntity> get businesses;/// For details screen
- BusinessEntity? get selectedBusiness;/// For search query
- String? get query;/// Error handling
- String? get errorMessage;
+ ViewState get viewState; List<BusinessEntity> get businesses; BusinessEntity? get selectedBusiness; String? get query; String? get errorMessage;
 /// Create a copy of BusinessState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -120,10 +116,7 @@ return $default(_that);case _:
 final _that = this;
 switch (_that) {
 case _BusinessState():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -182,10 +175,7 @@ return $default(_that.viewState,_that.businesses,_that.selectedBusiness,_that.qu
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( ViewState viewState,  List<BusinessEntity> businesses,  BusinessEntity? selectedBusiness,  String? query,  String? errorMessage)  $default,) {final _that = this;
 switch (_that) {
 case _BusinessState():
-return $default(_that.viewState,_that.businesses,_that.selectedBusiness,_that.query,_that.errorMessage);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that.viewState,_that.businesses,_that.selectedBusiness,_that.query,_that.errorMessage);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -218,20 +208,15 @@ class _BusinessState implements BusinessState {
   
 
 @override@JsonKey() final  ViewState viewState;
-/// For list screen
  final  List<BusinessEntity> _businesses;
-/// For list screen
 @override@JsonKey() List<BusinessEntity> get businesses {
   if (_businesses is EqualUnmodifiableListView) return _businesses;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_businesses);
 }
 
-/// For details screen
 @override final  BusinessEntity? selectedBusiness;
-/// For search query
 @override final  String? query;
-/// Error handling
 @override final  String? errorMessage;
 
 /// Create a copy of BusinessState

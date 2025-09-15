@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$BusinessModel {
 
-@JsonKey(name: 'biz_name') String get name;@JsonKey(name: 'bss_location') String get location;@JsonKey(name: 'contct_no') String get contact;
+@JsonKey(name: 'biz_name') String get businessName;@JsonKey(name: 'bss_location') String get location;@JsonKey(name: 'contct_no') String get contact;
 /// Create a copy of BusinessModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $BusinessModelCopyWith<BusinessModel> get copyWith => _$BusinessModelCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BusinessModel&&(identical(other.name, name) || other.name == name)&&(identical(other.location, location) || other.location == location)&&(identical(other.contact, contact) || other.contact == contact));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BusinessModel&&(identical(other.businessName, businessName) || other.businessName == businessName)&&(identical(other.location, location) || other.location == location)&&(identical(other.contact, contact) || other.contact == contact));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,location,contact);
+int get hashCode => Object.hash(runtimeType,businessName,location,contact);
 
 @override
 String toString() {
-  return 'BusinessModel(name: $name, location: $location, contact: $contact)';
+  return 'BusinessModel(businessName: $businessName, location: $location, contact: $contact)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $BusinessModelCopyWith<$Res>  {
   factory $BusinessModelCopyWith(BusinessModel value, $Res Function(BusinessModel) _then) = _$BusinessModelCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'biz_name') String name,@JsonKey(name: 'bss_location') String location,@JsonKey(name: 'contct_no') String contact
+@JsonKey(name: 'biz_name') String businessName,@JsonKey(name: 'bss_location') String location,@JsonKey(name: 'contct_no') String contact
 });
 
 
@@ -65,9 +65,9 @@ class _$BusinessModelCopyWithImpl<$Res>
 
 /// Create a copy of BusinessModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? location = null,Object? contact = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? businessName = null,Object? location = null,Object? contact = null,}) {
   return _then(_self.copyWith(
-name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+businessName: null == businessName ? _self.businessName : businessName // ignore: cast_nullable_to_non_nullable
 as String,location: null == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
 as String,contact: null == contact ? _self.contact : contact // ignore: cast_nullable_to_non_nullable
 as String,
@@ -152,10 +152,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'biz_name')  String name, @JsonKey(name: 'bss_location')  String location, @JsonKey(name: 'contct_no')  String contact)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'biz_name')  String businessName, @JsonKey(name: 'bss_location')  String location, @JsonKey(name: 'contct_no')  String contact)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _BusinessModel() when $default != null:
-return $default(_that.name,_that.location,_that.contact);case _:
+return $default(_that.businessName,_that.location,_that.contact);case _:
   return orElse();
 
 }
@@ -173,10 +173,10 @@ return $default(_that.name,_that.location,_that.contact);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'biz_name')  String name, @JsonKey(name: 'bss_location')  String location, @JsonKey(name: 'contct_no')  String contact)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'biz_name')  String businessName, @JsonKey(name: 'bss_location')  String location, @JsonKey(name: 'contct_no')  String contact)  $default,) {final _that = this;
 switch (_that) {
 case _BusinessModel():
-return $default(_that.name,_that.location,_that.contact);}
+return $default(_that.businessName,_that.location,_that.contact);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -190,10 +190,10 @@ return $default(_that.name,_that.location,_that.contact);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'biz_name')  String name, @JsonKey(name: 'bss_location')  String location, @JsonKey(name: 'contct_no')  String contact)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'biz_name')  String businessName, @JsonKey(name: 'bss_location')  String location, @JsonKey(name: 'contct_no')  String contact)?  $default,) {final _that = this;
 switch (_that) {
 case _BusinessModel() when $default != null:
-return $default(_that.name,_that.location,_that.contact);case _:
+return $default(_that.businessName,_that.location,_that.contact);case _:
   return null;
 
 }
@@ -205,10 +205,10 @@ return $default(_that.name,_that.location,_that.contact);case _:
 @JsonSerializable()
 
 class _BusinessModel implements BusinessModel {
-  const _BusinessModel({@JsonKey(name: 'biz_name') required this.name, @JsonKey(name: 'bss_location') required this.location, @JsonKey(name: 'contct_no') required this.contact});
+  const _BusinessModel({@JsonKey(name: 'biz_name') required this.businessName, @JsonKey(name: 'bss_location') required this.location, @JsonKey(name: 'contct_no') required this.contact});
   factory _BusinessModel.fromJson(Map<String, dynamic> json) => _$BusinessModelFromJson(json);
 
-@override@JsonKey(name: 'biz_name') final  String name;
+@override@JsonKey(name: 'biz_name') final  String businessName;
 @override@JsonKey(name: 'bss_location') final  String location;
 @override@JsonKey(name: 'contct_no') final  String contact;
 
@@ -225,16 +225,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BusinessModel&&(identical(other.name, name) || other.name == name)&&(identical(other.location, location) || other.location == location)&&(identical(other.contact, contact) || other.contact == contact));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BusinessModel&&(identical(other.businessName, businessName) || other.businessName == businessName)&&(identical(other.location, location) || other.location == location)&&(identical(other.contact, contact) || other.contact == contact));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,location,contact);
+int get hashCode => Object.hash(runtimeType,businessName,location,contact);
 
 @override
 String toString() {
-  return 'BusinessModel(name: $name, location: $location, contact: $contact)';
+  return 'BusinessModel(businessName: $businessName, location: $location, contact: $contact)';
 }
 
 
@@ -245,7 +245,7 @@ abstract mixin class _$BusinessModelCopyWith<$Res> implements $BusinessModelCopy
   factory _$BusinessModelCopyWith(_BusinessModel value, $Res Function(_BusinessModel) _then) = __$BusinessModelCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'biz_name') String name,@JsonKey(name: 'bss_location') String location,@JsonKey(name: 'contct_no') String contact
+@JsonKey(name: 'biz_name') String businessName,@JsonKey(name: 'bss_location') String location,@JsonKey(name: 'contct_no') String contact
 });
 
 
@@ -262,9 +262,9 @@ class __$BusinessModelCopyWithImpl<$Res>
 
 /// Create a copy of BusinessModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? location = null,Object? contact = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? businessName = null,Object? location = null,Object? contact = null,}) {
   return _then(_BusinessModel(
-name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+businessName: null == businessName ? _self.businessName : businessName // ignore: cast_nullable_to_non_nullable
 as String,location: null == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
 as String,contact: null == contact ? _self.contact : contact // ignore: cast_nullable_to_non_nullable
 as String,

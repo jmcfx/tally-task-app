@@ -49,21 +49,21 @@ class BusinessRepositoryImpl implements BusinessRepository {
       if (await _networkInfo.isConnected) {
         final models = await _remote.getBusinesses();
         await _local.cacheBusinesses(models);
-
         final business = models.firstWhere(
           (m) =>
-              '${m.name.trim()}_${m.contact.replaceAll(' ', '')}'.hashCode
+              '${m.businessName.trim()}_${m.contact.replaceAll(' ', '')}'
+                  .hashCode
                   .toString() ==
               id,
           orElse: () => throw ServerException(),
         );
-
         return Right(business.toEntity());
       } else {
         final cached = await _local.getCachedBusinesses();
         final business = cached.firstWhere(
           (m) =>
-              '${m.name.trim()}_${m.contact.replaceAll(' ', '')}'.hashCode
+              '${m.businessName.trim()}_${m.contact.replaceAll(' ', '')}'
+                  .hashCode
                   .toString() ==
               id,
           orElse: () => throw CacheException(),
@@ -87,7 +87,7 @@ class BusinessRepositoryImpl implements BusinessRepository {
       final results = cached
           .where(
             (m) =>
-                m.name.toLowerCase().contains(query.toLowerCase()) ||
+                m.businessName.toLowerCase().contains(query.toLowerCase()) ||
                 m.location.toLowerCase().contains(query.toLowerCase()),
           )
           .map((m) => m.toEntity())
