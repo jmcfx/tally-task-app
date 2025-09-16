@@ -5,6 +5,6 @@ abstract interface class UseCase<DataType, Params> {
   Future<FailureOr<DataType>> call(Params params);
 }
 
-/// use_case that don't take params ||
+/// use_case that don't take params || classes can work but i will go with records this time 
 /// used records because then are immutable and have prebuilt value equality..
 typedef NoParams = ();
