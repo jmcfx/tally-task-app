@@ -63,42 +63,47 @@ class _BusinessDetailPageState extends State<BusinessDetailPage> {
                     : BusinessCard(
                         child: Padding(
                           padding: const EdgeInsets.all(20.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Text(
-                                business.name,
-                                style: const TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w800,
-                                  
+                          child: SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Text(
+                                  business.name,
+                                  style: const TextStyle(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w800,
+                                    
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(height: 16),
-                              InfoRow(
-                                icon: Icons.location_on,
-                                iconColor: Colors.blue,
-                                text: business.location,
-                              ),
-                              const SizedBox(height: 12),
-                              InfoRow(
-                                icon: Icons.phone,
-                                iconColor: Colors.green,
-                                text: business.contact,
-                              ),
-                              const SizedBox(height: 20),
-                              Container(
-                                padding: const EdgeInsets.all(12),
-                                decoration: BoxDecoration(
-                                  color: Colors.grey.shade100,
-                                  borderRadius: BorderRadius.circular(12),
+                                const SizedBox(height: 16),
+                                InfoRow(
+                                  icon: Icons.location_on,
+                                  iconColor: Colors.blue,
+                                  text: business.location,
                                 ),
-                                child: const Text(
-                                  "This [ Business Card Widget ]  is fully customizable, allowing display of business details, services, working hours, or any other relevant information. It is designed to be flexible, clean, and reusable for different data models.",
-                                  style: TextStyle(fontSize: 14),
+                                const SizedBox(height: 12),
+                                InfoRow(
+                                  icon: Icons.phone,
+                                  iconColor: Colors.green,
+                                  text: business.contact,
                                 ),
-                              ),
-                            ],
+                                const SizedBox(height: 20),
+                                Container(
+                                  padding: const EdgeInsets.all(12),
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.shade100,
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  child: const Text(
+                                    "This [ Business Card Widget ]  is fully customizable, allowing display of business details, services, working hours, or any other relevant information. It is designed to be flexible, clean, and reusable for different data models.",
+                                    style: TextStyle(fontSize: 14),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 250,
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
