@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:tally_task/di/service_locator.dart';
 import 'package:tally_task/features/business/presentation/pages/business_page.dart';
 import 'package:tally_task/features/business/presentation/provider/business_provider.dart';
+import 'package:tally_task/features/business/presentation/provider/business_state.dart';
 import 'package:tally_task/features/business/presentation/widgets/unfocus.dart';
 
 class TallyTaskApp extends StatelessWidget {
@@ -13,7 +14,10 @@ class TallyTaskApp extends StatelessWidget {
     return Unfocus(
       child: MultiProvider(
         providers: [
-          ChangeNotifierProvider(create: (_) => sl<BusinessProvider>()),
+         Provider<BusinessProvider>.value(value: sl<BusinessProvider>()),
+          ValueListenableProvider<BusinessState>.value(
+            value: sl<BusinessProvider>().stateNotifier,
+          ),
         ],
         child: MaterialApp(
           title: 'TallyTaskApp',

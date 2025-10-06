@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:tally_task/core/enum/view_state.dart';
 import 'package:tally_task/features/business/presentation/pages/business_detail_page.dart';
 import 'package:tally_task/features/business/presentation/provider/business_provider.dart';
+import 'package:tally_task/features/business/presentation/provider/business_state.dart';
 import 'package:tally_task/features/business/presentation/widgets/business_card.dart';
 
 class BusinessPage extends StatefulWidget {
@@ -23,8 +24,8 @@ class _BusinessPageState extends State<BusinessPage> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = context.watch<BusinessProvider>();
-    final state = provider.state;
+    final state = context.watch<BusinessState>();
+    final provider = context.read<BusinessProvider>();
 
     return Scaffold(
       appBar: AppBar(title: const Text("Businesses"), centerTitle: true),
@@ -33,7 +34,7 @@ class _BusinessPageState extends State<BusinessPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // SEARCH BAR
+            // Search ......
             TextField(
               onChanged: provider.search,
               decoration: InputDecoration(
@@ -45,7 +46,8 @@ class _BusinessPageState extends State<BusinessPage> {
               ),
             ),
             const SizedBox(height: 12),
-            // MAIN CONTENT
+
+            // Main State....
             Expanded(
               child: switch (state.viewState) {
                 ViewState.loading => const Center(
@@ -81,7 +83,12 @@ class _BusinessPageState extends State<BusinessPage> {
                                 BusinessDetailPage(businessId: business.id),
                           ),
                         );
-                        debugPrint('Business ID tapped: ${business.id}\nName: ${business.name}\nLocation: ${business.location}\nContact: ${business.contact}');
+                        debugPrint(
+                          'Business ID tapped: ${business.id}\n'
+                          'Name: ${business.name}\n'
+                          'Location: ${business.location}\n'
+                          'Contact: ${business.contact}',
+                        );
                       },
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

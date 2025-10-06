@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tally_task/core/enum/view_state.dart';
 import 'package:tally_task/features/business/presentation/provider/business_provider.dart';
+import 'package:tally_task/features/business/presentation/provider/business_state.dart';
 import 'package:tally_task/features/business/presentation/widgets/business_card.dart';
 import 'package:tally_task/features/business/presentation/widgets/info_row.dart';
 
@@ -19,14 +20,15 @@ class _BusinessDetailPageState extends State<BusinessDetailPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<BusinessProvider>().fetchBusinessDetail(widget.businessId);
+      final provider = context.read<BusinessProvider>();
+      provider.fetchBusinessDetail(widget.businessId);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final provider = context.watch<BusinessProvider>();
-    final state = provider.state;
+    final state = context.watch<BusinessState>();
+    final provider = context.read<BusinessProvider>();
 
     return Scaffold(
       appBar: AppBar(title: const Text("Business Detail")),
@@ -43,7 +45,7 @@ class _BusinessDetailPageState extends State<BusinessDetailPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(state.errorMessage!),
+                    Text(state.errorMessage ?? "An error occurred"),
                     const SizedBox(height: 12),
                     ElevatedButton(
                       onPressed: () =>
@@ -57,9 +59,6 @@ class _BusinessDetailPageState extends State<BusinessDetailPage> {
               ViewState.success =>
                 business == null
                     ? const Center(child: Text("Business data not available"))
-                    /// This  [ BusinessCard ] is fully customizable and reusable.
-                    /// It can render different types of data models via composition or generics.
-                    /// Here, it displays business details, but it could easily show services, products, etc.
                     : BusinessCard(
                         child: Padding(
                           padding: const EdgeInsets.all(20.0),
@@ -72,7 +71,6 @@ class _BusinessDetailPageState extends State<BusinessDetailPage> {
                                   style: const TextStyle(
                                     fontSize: 24,
                                     fontWeight: FontWeight.w800,
-                                    
                                   ),
                                 ),
                                 const SizedBox(height: 16),
@@ -99,9 +97,7 @@ class _BusinessDetailPageState extends State<BusinessDetailPage> {
                                     style: TextStyle(fontSize: 14),
                                   ),
                                 ),
-                                SizedBox(
-                                  height: 250,
-                                )
+                                const SizedBox(height: 250),
                               ],
                             ),
                           ),
